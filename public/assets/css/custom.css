@@ -17,6 +17,10 @@
   color: #000;
 }
 
+.message-user {
+  font-weight: 700;
+}
+
 .txt-message {
   resize: none;
 }

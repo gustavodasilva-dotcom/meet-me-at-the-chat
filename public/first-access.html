@@ -60,13 +60,13 @@
       <div class="container">
         <div class="row mt-1 justify-content-center" data-aos="fade-up">
           <div class="col-lg-10">
-            <form action="chat.html" class="php-email-form">
+            <form class="php-email-form form-first-access">
               <div class="row">
                 <div class="col-md-12 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control edt-username" id="name" placeholder="Your Name" required>
                 </div>
               </div>
-              <div class="text-center mt-5"><button type="submit">Send Message</button></div>
+              <div class="text-center mt-5"><button type="submit">Go to chat</button></div>
             </form>
           </div>
         </div>
@@ -107,6 +107,15 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
   <script src="assets/js/main.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.2/qs.min.js"
+    integrity="sha512-vCegEXqPUYpZsTGz2lk0jaQ1psxtFeniVJACAXhMVxuoYa/N4nZkjoVFOxLwP7uGeQOoemiz7DQrIpRTj4IBPw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="js/firstAccess.js"></script>
+  <script>
+    FirstAccessPage.init();
+  </script>
 
 </body>
 

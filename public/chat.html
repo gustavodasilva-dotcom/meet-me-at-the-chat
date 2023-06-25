@@ -65,14 +65,14 @@
         </div>
       </div>
     </div>
-    <div class="h-75">
+    <div class="h-75 w-50">
       <div class="p-5 overflow-y-scroll chat-messages" style="height: 80%;">
-        <div class="p-2 m-2 rounded message">
+        <div class="p-2 m-2 rounded message" style="display: none;">
           <div class="d-flex justify-content-between message-header">
-            <p class="message-user"><b>Lewis</b></p>
+            <p class="message-user">Lewis</p>
             <p class="message-time">9:12am</span>
           </div>
-          <p class="p-3 text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+          <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
             repudiandae.</p>
         </div>
       </div>
@@ -123,6 +123,10 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.2/qs.min.js"
+    integrity="sha512-vCegEXqPUYpZsTGz2lk0jaQ1psxtFeniVJACAXhMVxuoYa/N4nZkjoVFOxLwP7uGeQOoemiz7DQrIpRTj4IBPw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="js/chat.js"></script>
   <script>

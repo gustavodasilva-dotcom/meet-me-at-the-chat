@@ -3,6 +3,8 @@ const path = require('path');
 const http = require('http');
 const dotnev = require('dotenv');
 const socketio = require('socket.io');
+const { sendMessage } = require('./utils/messages');
+const { joinUser, getCurrentUser } = require('./utils/users');
 
 const app = express();
 const server = http.createServer(app);
@@ -11,21 +13,45 @@ dotnev.config();
 
 const PORT = process.env.PORT || 3000;
 
+const botName = 'Meet Me At The Chat! Bot';
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
-  console.log('New websocket connection');
+  socket.on('joinChat', ({ chat, user }) => {
+    const recentJoin = joinUser({
+      id: socket.id,
+      user: user,
+      chat: chat
+    });
 
-  socket.emit('message', 'Welcome to Meet Me At The Chat!');
+    socket.join(recentJoin.chat);
 
-  socket.broadcast.emit('message', 'A user has joined the chat');
-
-  socket.on('disconnect', () => {
-    io.emit('message', 'A user has left the chat');
+    socket.emit('message', sendMessage({
+      username: botName,
+      text: 'Welcome to Meet Me At The Chat!'
+    }));
+    
+    socket.broadcast
+      .to(recentJoin.chat)
+      .emit('message', sendMessage({
+        username: botName,
+        text: `${recentJoin.user} has joined the chat`
+      }));
   });
 
   socket.on('chatMessage', (message) => {
-    io.emit('message', message);
+    io.emit('message', sendMessage({
+      username: 'USER',
+      text: message
+    }));
+  });
+
+  socket.on('disconnect', () => {
+    io.emit('message', sendMessage({
+      username: botName,
+      text: 'A user has left the chat'
+    }));
   });
 });
 
