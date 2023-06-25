@@ -4,7 +4,7 @@ const http = require('http');
 const dotnev = require('dotenv');
 const socketio = require('socket.io');
 const { sendMessage } = require('./utils/messages');
-const { joinUser, getCurrentUser } = require('./utils/users');
+const { joinUser, getCurrentUser, userLeaves, getChatUsers } = require('./utils/users');
 
 const app = express();
 const server = http.createServer(app);
@@ -18,40 +18,55 @@ const botName = 'Meet Me At The Chat! Bot';
 app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
-  socket.on('joinChat', ({ chat, user }) => {
-    const recentJoin = joinUser({
+  socket.on('joinChat', (options) => {
+    const userJoined = joinUser({
       id: socket.id,
-      user: user,
-      chat: chat
+      ...options
     });
 
-    socket.join(recentJoin.chat);
+    socket.join(userJoined.chat);
 
     socket.emit('message', sendMessage({
       username: botName,
       text: 'Welcome to Meet Me At The Chat!'
     }));
-    
+
     socket.broadcast
-      .to(recentJoin.chat)
+      .to(userJoined.chat)
       .emit('message', sendMessage({
         username: botName,
-        text: `${recentJoin.user} has joined the chat`
+        text: `${userJoined.user} has joined the chat`
       }));
+
+    io.to(userJoined.chat).emit('chatUsers', {
+      chat: userJoined.chat,
+      users: getChatUsers(userJoined.chat)
+    });
   });
 
   socket.on('chatMessage', (message) => {
-    io.emit('message', sendMessage({
-      username: 'USER',
+    const currentUser = getCurrentUser(socket.id);
+
+    io.to(currentUser.chat).emit('message', sendMessage({
+      username: currentUser.user,
       text: message
     }));
   });
 
   socket.on('disconnect', () => {
-    io.emit('message', sendMessage({
-      username: botName,
-      text: 'A user has left the chat'
-    }));
+    const userLeaving = userLeaves(socket.id);
+
+    if (userLeaving) {
+      io.to(userLeaving.chat).emit('message', sendMessage({
+        username: botName,
+        text: `${userLeaving.user} has left the chat`
+      }));
+
+      io.to(userLeaving.chat).emit('chatUsers', {
+        chat: userLeaving.chat,
+        users: getChatUsers(userLeaving.chat)
+      });
+    }
   });
 });
 

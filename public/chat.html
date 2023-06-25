@@ -28,7 +28,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/custom.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Company
@@ -49,18 +49,14 @@
 
   <main class="w-100 chat-wrapper d-flex align-items-center justify-content-center">
     <div class="h-50 m-2 chat-info" style="width: 170px;">
-      <div class="mt-5 m-2 text-center">
-        <p class="mb-0">Chat name:</p>
-        <h5 class="chat-name">Sports</h5>
+      <div class="mt-5 m-2 text-center info-header">
+        <h5 class="chat-name" style="display: none;">Sports</h5>
       </div>
       <div class="mt-5 online-users">
         <h5 class="text-center modal-title">Online users:</h5>
-        <div class="p-2 mt-2 online-users-list">
-          <ul class="list-group">
-            <li class="list-group-item">Lewis</li>
-            <li class="list-group-item">George</li>
-            <li class="list-group-item">Max</li>
-            <li class="list-group-item">Daniel</li>
+        <div class="p-2 mt-2 online-users">
+          <ul class="list-group users-list">
+            <li class="list-group-item user-list-item" style="display: none;">John Doe</li>
           </ul>
         </div>
       </div>
@@ -69,8 +65,8 @@
       <div class="p-5 overflow-y-scroll chat-messages" style="height: 80%;">
         <div class="p-2 m-2 rounded message" style="display: none;">
           <div class="d-flex justify-content-between message-header">
-            <p class="message-user">Lewis</p>
-            <p class="message-time">9:12am</span>
+            <p class="message-user">John Doe</p>
+            <p class="message-time">0:00am</span>
           </div>
           <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
             repudiandae.</p>
