@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Chat - Meet Me At The Chat!</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Company
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo me-auto"><a href="index.html"><span>Meet Me </span>At The Chat<span>!</span></a></h1>
+    </div>
+  </header>
+
+  <main class="w-100 chat-wrapper d-flex align-items-center justify-content-center">
+    <div class="h-50 m-2 chat-info" style="width: 170px;">
+      <div class="mt-5 m-2 text-center">
+        <p class="mb-0">Chat name:</p>
+        <h5 class="chat-name">Sports</h5>
+      </div>
+      <div class="mt-5 online-users">
+        <h5 class="text-center modal-title">Online users:</h5>
+        <div class="p-2 mt-2 online-users-list">
+          <ul class="list-group">
+            <li class="list-group-item">Lewis</li>
+            <li class="list-group-item">George</li>
+            <li class="list-group-item">Max</li>
+            <li class="list-group-item">Daniel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="h-75">
+      <div class="p-5 overflow-y-scroll chat-messages" style="height: 80%;">
+        <div class="p-2 m-2 rounded message">
+          <div class="d-flex justify-content-between message-header">
+            <p class="message-user"><b>Lewis</b></p>
+            <p class="message-time">9:12am</span>
+          </div>
+          <p class="p-3 text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+            repudiandae.</p>
+        </div>
+      </div>
+      <div class="mt-2 chat-message" style="height: 15%;">
+        <form class="d-flex w-100 p-4 justify-content-center form-send-message">
+          <div class="input-group">
+            <textarea class="form-control txt-message" placeholder="Enter message..."></textarea>
+            <button class="input-group-text btn-send-message">
+              <i class="fa fa-send-o"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Meet Me At The Chat!</h3>
+            <p>Chat with friends and befriend strangers.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Meet Me At The Chat!</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+      </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script src="js/chat.js"></script>
+  <script>
+    ChatPage.init();
+  </script>
+
+</body>
+
+</html>

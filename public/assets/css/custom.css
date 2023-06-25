@@ -1,0 +1,28 @@
+.chat-wrapper {
+  height: 100vh;
+  background: #1bbd36;
+}
+
+.chat-info,
+.chat-messages,
+.chat-message {
+  background: #fff;
+}
+
+.message {
+  background: #bbd7c0;
+}
+
+.message p {
+  color: #000;
+}
+
+.txt-message {
+  resize: none;
+}
+
+.btn-send-message {
+  background: #1bbd36;
+  font-size: 30px;
+  color: #fff;
+}
