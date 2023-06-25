@@ -8,15 +8,15 @@ Start chatting up with your friends (or strangers; why not, right?) right now at
 
 First, you need to select a chat forum:
 
-[Index page](public/assets/img/public/index.png)
+[Index page](https://github.com/gustavodasilva-dotcom/meet-me-at-the-chat/blob/master/public/assets/img/public/index.png)
 
 Then, inform your name:
 
-[First access page](public/assets/img/public/first-access.png)
+[First access page](https://github.com/gustavodasilva-dotcom/meet-me-at-the-chat/blob/master/public/assets/img/public/first-access.png)
 
 Now, just chat with your friends:
 
-[Chat page](public/assets/img/public/chat.png)
+[Chat page](https://github.com/gustavodasilva-dotcom/meet-me-at-the-chat/blob/master/public/assets/img/public/chat.png)
 
 ### About the project
 
