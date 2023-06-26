@@ -2,72 +2,35 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const dotnev = require('dotenv');
-const socketio = require('socket.io');
-const { sendMessage } = require('./utils/messages');
-const { joinUser, getCurrentUser, userLeaves, getChatUsers } = require('./utils/users');
+const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
+const socketMessages = require('./socket/messages');
+const mongoConn = require('./config/mongoConn');
+const configRoutes = require('./configRoutes');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+
 dotnev.config();
 
 const PORT = process.env.PORT || 3000;
 
-const botName = 'Meet Me At The Chat! Bot';
+mongoConn();
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: false }));
 
-io.on('connection', socket => {
-  socket.on('joinChat', (options) => {
-    const userJoined = joinUser({
-      id: socket.id,
-      ...options
-    });
+app.use(express.json());
 
-    socket.join(userJoined.chat);
+app.use(cookieParser());
 
-    socket.emit('message', sendMessage({
-      username: botName,
-      text: 'Welcome to Meet Me At The Chat!'
-    }));
+app.use(express.static(path.join(__dirname, 'views')));
 
-    socket.broadcast
-      .to(userJoined.chat)
-      .emit('message', sendMessage({
-        username: botName,
-        text: `${userJoined.user} has joined the chat`
-      }));
+configRoutes(app);
 
-    io.to(userJoined.chat).emit('chatUsers', {
-      chat: userJoined.chat,
-      users: getChatUsers(userJoined.chat)
-    });
-  });
+socketMessages(server);
 
-  socket.on('chatMessage', (message) => {
-    const currentUser = getCurrentUser(socket.id);
+mongoose.connection.once('open', async () => {
+  console.log('Connected to MongoDB');
 
-    io.to(currentUser.chat).emit('message', sendMessage({
-      username: currentUser.user,
-      text: message
-    }));
-  });
-
-  socket.on('disconnect', () => {
-    const userLeaving = userLeaves(socket.id);
-
-    if (userLeaving) {
-      io.to(userLeaving.chat).emit('message', sendMessage({
-        username: botName,
-        text: `${userLeaving.user} has left the chat`
-      }));
-
-      io.to(userLeaving.chat).emit('chatUsers', {
-        chat: userLeaving.chat,
-        users: getChatUsers(userLeaving.chat)
-      });
-    }
-  });
+  server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
-
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
