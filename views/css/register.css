@@ -1,0 +1,17 @@
+@import url('../css/layout.css');
+
+.register-wrapper {
+  height: 70vh;
+}
+
+.btn-submit-register,
+.btn-submit-register:hover,
+.btn-submit-register:active,
+.btn-submit-register:visited {
+  background-color: var(--dark-pastel-green) !important;
+}
+
+.btn-submit-register {
+  font-size: 21px;
+  border: 1px solid var(--dark-pastel-green);
+}

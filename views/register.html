@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Chat - Meet Me At The Chat!</title>
+  <title>Register - Meet Me At The Chat!</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -15,8 +15,6 @@
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -28,7 +26,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="css/chat.css" rel="stylesheet">
+  <link href="css/register.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Company
@@ -47,42 +45,26 @@
     </div>
   </header>
 
-  <main class="w-100 chat-wrapper d-flex align-items-center justify-content-center">
-    <div class="h-50 m-2 chat-info">
-      <div class="mt-5 m-2 text-center info-header">
-        <h5 class="chat-name">Sports</h5>
+  <main class="w-100 register-wrapper d-flex align-items-center justify-content-center">
+    <form class="w-50 p-5 register-form shadow p-3 mb-5 mt-5 bg-body rounded">
+      <div class="p-2 mt-3">
+        <label for="edtName" class="form-label">Name</label>
+        <input type="text" class="form-control edt-name" id="edtName" placeholder="(Ex.: John Doe)" required>
       </div>
-      <div class="mt-5 online-users">
-        <h5 class="text-center modal-title">Online users:</h5>
-        <div class="p-2 mt-2 online-users">
-          <ul class="list-group users-list">
-            <li class="list-group-item user-list-item">John Doe</li>
-          </ul>
-        </div>
+      <div class="p-2 mt-3">
+        <label for="edtEmail" class="form-label">Email</label>
+        <input type="text" class="form-control edt-email" id="edtEmail" placeholder="(Ex.: john.doe@email.com)" required>
       </div>
-    </div>
-    <div class="h-75 w-50">
-      <div class="p-5 overflow-y-scroll chat-messages">
-        <div class="p-2 m-2 rounded message">
-          <div class="d-flex justify-content-between message-header">
-            <p class="message-user">John Doe</p>
-            <p class="message-time">0:00am</span>
-          </div>
-          <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-            repudiandae.</p>
-        </div>
+      <div class="p-2 mt-3">
+        <label for="edtPassword" class="form-label">Password</label>
+        <input type="password" class="form-control edt-password" id="edtPassword" placeholder="Type in your password..." required>
       </div>
-      <div class="mt-2 chat-message">
-        <form class="d-flex w-100 p-4 justify-content-center form-send-message">
-          <div class="input-group">
-            <textarea class="form-control txt-message" placeholder="Enter message..."></textarea>
-            <button class="input-group-text btn-send-message">
-              <i class="fa fa-send-o"></i>
-            </button>
-          </div>
-        </form>
+      <div class="row p-4 mt-3">
+        <button type="submit" class="btn btn-submit-register">
+          Register
+        </button>
       </div>
-    </div>
+    </form>
   </main>
 
   <footer id="footer">
@@ -117,16 +99,16 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
-  <script src="/socket.io/socket.io.js"></script>
   <script src="assets/js/main.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.2/qs.min.js"
     integrity="sha512-vCegEXqPUYpZsTGz2lk0jaQ1psxtFeniVJACAXhMVxuoYa/N4nZkjoVFOxLwP7uGeQOoemiz7DQrIpRTj4IBPw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script src="js/pages/chat.js"></script>
+  <script src="js/helper/http.js"></script>
+  <script src="js/pages/register.js"></script>
   <script>
-    ChatPage.init();
+    RegisterPage.init();
   </script>
 
 </body>

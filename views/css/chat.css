@@ -1,0 +1,56 @@
+@import url('../css/layout.css');
+
+.chat-wrapper {
+  height: 100vh;
+  background: var(--dark-pastel-green);
+}
+
+.chat-info,
+.chat-messages,
+.chat-message {
+  background: var(--white);
+}
+
+.chat-info {
+  width: 170px;
+}
+
+.chat-name,
+.user-list-item,
+.message {
+  display: none;
+}
+
+.chat-name {
+  display: none;
+}
+
+.chat-messages {
+  height: 80%;
+}
+
+.chat-message {
+  height: 15%;
+}
+
+.message {
+  background: var(--victoria-green);
+}
+
+.message p {
+  color: var(--black);
+}
+
+.message-user {
+  font-weight: 700;
+}
+
+.txt-message {
+  resize: none;
+}
+
+.btn-send-message {
+  background: var(--dark-pastel-green);
+  font-size: 30px;
+  color: var(--white);
+}

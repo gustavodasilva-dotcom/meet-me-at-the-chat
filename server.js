@@ -25,6 +25,11 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'views')));
 
+app.use((req, _res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
 configRoutes(app);
 
 socketMessages(server);
